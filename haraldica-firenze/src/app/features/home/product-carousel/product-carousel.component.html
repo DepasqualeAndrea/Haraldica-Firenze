@@ -1,0 +1,21 @@
+<section class="carousel-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>The Connoisseur's Selection</h2>
+      <a routerLink="/shop" class="btn-outline">View All</a>
+    </div>
+    <div class="gold-divider" style="margin-bottom: var(--spacing-md)"></div>
+
+    <div class="carousel-section__grid">
+      @for (product of products; track product.id) {
+        <a [routerLink]="['/product', product.id]" class="product-card">
+          <div class="product-card__image">
+            <span class="carousel-section__img-label">{{ product.imageAlt }}</span>
+          </div>
+          <p class="product-card__name">{{ product.name }}</p>
+          <p class="product-card__price">{{ formatPrice(product.price) }}</p>
+        </a>
+      }
+    </div>
+  </div>
+</section>

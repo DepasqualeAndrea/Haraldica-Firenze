@@ -1,0 +1,46 @@
+<section class="hero">
+  <!-- Main Hero Area -->
+  <div class="hero__main">
+    <!-- Fashion Image Background -->
+    <div class="hero__image-wrapper" aria-hidden="true">
+      <div class="hero__image-placeholder">
+        <!-- Placeholder: replace with actual hero image -->
+        <div class="hero__image-overlay"></div>
+      </div>
+    </div>
+
+    <!-- Text Overlay (left) -->
+    <div class="hero__content">
+      <h1 class="hero__title">Emblems of<br>Italian Elegance</h1>
+      <div class="hero__cta-group">
+        <a routerLink="/shop" class="btn-outline">Discover the Collection</a>
+        <a routerLink="/shop" class="btn-outline">Explore the Story</a>
+      </div>
+      <div class="hero__cta-group hero__cta-group--secondary">
+        <a routerLink="/shop" class="btn-outline-white">Shop Women</a>
+        <a routerLink="/shop" class="btn-outline-white">Shop Men</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gold Divider -->
+  <div class="gold-divider"></div>
+
+  <!-- Featured Products Sub-section -->
+  <div class="hero__products">
+    <div class="hero__products-grid">
+      @for (product of featuredProducts; track product.id) {
+        <a [routerLink]="['/product', product.id]" class="product-card">
+          <div class="product-card__image">
+            <span class="product-card__placeholder-text">{{ product.imageAlt }}</span>
+          </div>
+          <p class="product-card__name">{{ product.name }}</p>
+          <p class="product-card__price">{{ formatPrice(product.price) }}</p>
+        </a>
+      }
+    </div>
+  </div>
+
+  <!-- Bottom Gold Divider -->
+  <div class="gold-divider"></div>
+</section>

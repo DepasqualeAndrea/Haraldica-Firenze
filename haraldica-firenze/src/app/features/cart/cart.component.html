@@ -1,0 +1,43 @@
+<main class="cart-page">
+  <div class="container">
+    <h1 class="cart-page__title">Your Bag</h1>
+    <div class="gold-divider"></div>
+
+    @if (cartItems().length === 0) {
+      <div class="cart-page__empty">
+        <p>Your bag is empty.</p>
+        <a routerLink="/shop" class="btn-outline">Continue Shopping</a>
+      </div>
+    } @else {
+      <div class="cart-page__items">
+        @for (item of cartItems(); track item.id) {
+          <div class="cart-page__item">
+            <div class="cart-page__item-thumb">
+              <span>{{ item.name[0] }}</span>
+            </div>
+            <div class="cart-page__item-info">
+              <p class="cart-page__item-name">{{ item.name }}</p>
+              @if (item.size) {
+                <p class="cart-page__item-size">Size: {{ item.size }}</p>
+              }
+              <p class="cart-page__item-qty">Qty: {{ item.quantity }}</p>
+            </div>
+            <div class="cart-page__item-actions">
+              <p class="cart-page__item-price">{{ formatPrice(item.price * item.quantity) }}</p>
+              <button class="cart-page__remove-btn" (click)="removeItem(item.id, item.size)">Remove</button>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="cart-page__footer">
+        <div class="cart-page__total">
+          <span>Total</span>
+          <span class="cart-page__total-amount">{{ formatPrice(cartTotal()) }}</span>
+        </div>
+        <button class="cart-page__checkout-btn">Proceed to Checkout</button>
+        <a routerLink="/shop" class="btn-outline">Continue Shopping</a>
+      </div>
+    }
+  </div>
+</main>

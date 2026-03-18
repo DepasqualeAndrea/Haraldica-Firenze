@@ -1,0 +1,40 @@
+// ============================================
+// HARALDICA FIRENZE — Design Tokens
+// ============================================
+
+// --- Colors ---
+$color-bg:              #0D1115;
+$color-accent:          #C8B084;
+$color-text:            #FFFFFF;
+$color-text-secondary:  #A0AAB2;
+$color-border:          rgba(200, 176, 132, 0.4);
+$color-border-solid:    #C8B084;
+
+// --- CSS Custom Properties ---
+:root {
+  --color-bg:              #{$color-bg};
+  --color-accent:          #{$color-accent};
+  --color-text:            #{$color-text};
+  --color-text-secondary:  #{$color-text-secondary};
+  --color-border:          #{$color-border};
+  --color-border-solid:    #{$color-border-solid};
+
+  // Typography
+  --font-serif:   'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'Montserrat', 'Inter', 'Lato', system-ui, sans-serif;
+
+  // Spacing
+  --spacing-xs:   8px;
+  --spacing-sm:   16px;
+  --spacing-md:   24px;
+  --spacing-lg:   48px;
+  --spacing-xl:   80px;
+
+  // Layout
+  --max-width:    1400px;
+  --header-h:     110px;
+}
+
+// SCSS helpers
+$font-serif:  var(--font-serif);
+$font-sans:   var(--font-sans);

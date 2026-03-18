@@ -1,0 +1,145 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.profile {
+  min-height: 100vh;
+  padding: var(--spacing-xl) 0;
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+
+    @include tablet  { grid-template-columns: 180px 1fr; }
+    @include mobile  { grid-template-columns: 1fr; }
+  }
+
+  // Sidebar
+  &__sidebar {
+    border-right: 1px solid var(--color-border);
+    padding-right: var(--spacing-md);
+
+    @include mobile { border-right: none; border-bottom: 1px solid var(--color-border); padding-bottom: var(--spacing-sm); }
+  }
+
+  &__sidebar-title {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  &__menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    @include mobile { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+  }
+
+  &__menu-item {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+    border-radius: 0;
+
+    &:hover { color: var(--color-text); }
+
+    &--active {
+      color: var(--color-accent);
+      border-left: 2px solid var(--color-accent);
+      background: rgba(200,176,132,0.05);
+    }
+
+    @include mobile {
+      width: auto;
+      border-left: none;
+      &--active { border-bottom: 2px solid var(--color-accent); }
+    }
+  }
+
+  // Content
+  &__content {
+    padding-left: var(--spacing-sm);
+
+    @include mobile { padding-left: 0; }
+  }
+
+  &__content-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  // Orders table
+  &__orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+    font-family: var(--font-sans);
+    font-size: 12px;
+
+    th {
+      text-align: left;
+      color: var(--color-text-secondary);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    td {
+      padding: 14px 12px;
+      color: var(--color-text);
+      border-bottom: 1px solid var(--color-border);
+      font-weight: 300;
+    }
+
+    tr:hover td { background: rgba(200,176,132,0.03); }
+  }
+
+  &__status {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    border: 1px solid var(--color-border);
+    padding: 3px 8px;
+  }
+
+  &__placeholder {
+    margin-top: var(--spacing-md);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+
+  // Gold-bordered bottom inputs (for forms)
+  input, textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--color-accent);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    padding: 8px 0;
+    outline: none;
+    width: 100%;
+    font-size: 13px;
+    border-radius: 0;
+
+    &::placeholder { color: var(--color-text-secondary); }
+  }
+}

@@ -1,0 +1,42 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.carousel-section {
+  padding: var(--spacing-xl) 0;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      // Horizontal scroll carousel on mobile
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: var(--spacing-sm);
+      padding-bottom: var(--spacing-sm);
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      &::-webkit-scrollbar { display: none; }
+
+      .product-card {
+        flex: 0 0 75vw;
+        scroll-snap-align: start;
+      }
+    }
+  }
+
+  &__img-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    color: var(--color-text-secondary);
+    text-align: center;
+    display: block;
+    padding: var(--spacing-sm);
+  }
+}

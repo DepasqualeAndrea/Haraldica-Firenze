@@ -1,0 +1,81 @@
+// ============================================
+// HARALDICA FIRENZE — Buttons
+@use 'sass:color';
+// ============================================
+
+%btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  border-radius: 0; // Sharp corners — luxury rule
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+// --- Outlined Gold Btn ---
+.btn-outline {
+  @extend %btn-base;
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+
+  &:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+}
+
+// --- Outlined White Btn ---
+.btn-outline-white {
+  @extend %btn-base;
+  background: transparent;
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+
+  &:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+  }
+}
+
+// --- Solid Gold Btn (CTA) ---
+.btn-solid {
+  @extend %btn-base;
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: var(--color-bg);
+
+  &:hover {
+    background: color.adjust(#C8B084, $lightness: -10%);
+    border-color: color.adjust(#C8B084, $lightness: -10%);
+  }
+}
+
+// --- Icon Btn (newsletter arrow) ---
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--color-accent);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--color-bg);
+  font-size: 16px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: color.adjust(#C8B084, $lightness: -10%);
+  }
+}

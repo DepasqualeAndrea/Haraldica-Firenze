@@ -1,0 +1,26 @@
+<section class="collections">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: var(--spacing-md)">
+      <h2>Featured Collections</h2>
+    </div>
+    <div class="gold-divider" style="margin-bottom: var(--spacing-md)"></div>
+
+    <div class="collections__grid">
+      @for (col of collections; track col.id) {
+        <div class="collections__card" [class.collections__card--highlighted]="col.highlighted">
+          <!-- Background image area -->
+          <div class="collections__card-bg" aria-hidden="true">
+            <div class="collections__card-overlay"></div>
+            <span class="collections__card-emoji">{{ col.bgEmoji }}</span>
+          </div>
+
+          <!-- Label -->
+          <h3 class="collections__card-label">{{ col.label | uppercase }}</h3>
+
+          <!-- CTA Button -->
+          <a routerLink="/shop" class="btn-outline collections__card-btn">{{ col.shopLabel }}</a>
+        </div>
+      }
+    </div>
+  </div>
+</section>

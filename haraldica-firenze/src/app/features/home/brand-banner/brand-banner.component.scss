@@ -1,0 +1,122 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.brand-banner {
+  padding: var(--spacing-xl) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+
+  &__layout {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+
+    @include tablet {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+  }
+
+  // Left (30%)
+  &__left {
+    flex: 0 0 30%;
+
+    @include tablet { flex: 0 0 auto; width: 100%; max-width: 300px; margin: 0 auto; }
+  }
+
+  &__artisan-img {
+    width: 100%;
+    aspect-ratio: 1;
+    border: 1px solid var(--color-border);
+    background: linear-gradient(135deg, #1A2128 0%, #0D1115 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__artisan-overlay {
+    @include absolute-cover;
+    @include flex-center;
+  }
+
+  &__artisan-icon {
+    font-size: 4rem;
+    opacity: 0.4;
+  }
+
+  // Centre (40%)
+  &__centre {
+    flex: 0 0 40%;
+
+    @include tablet { flex: 0 0 auto; width: 100%; text-align: center; }
+  }
+
+  &__title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+  }
+
+  &__body {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    text-align: justify;
+    margin-bottom: var(--spacing-md);
+
+    @include tablet { text-align: center; }
+  }
+
+  &__cta {
+    display: inline-flex;
+  }
+
+  // Right (30%)
+  &__right {
+    flex: 0 0 30%;
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include tablet { flex: 0 0 auto; width: 100%; }
+  }
+
+  &__icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: rgba(200, 176, 132, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: border-color 0.25s ease, background 0.25s ease;
+
+    &:hover {
+      border-color: var(--color-accent);
+      background: rgba(200, 176, 132, 0.15);
+    }
+  }
+
+  &__icon-label {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    text-align: center;
+    max-width: 80px;
+  }
+}

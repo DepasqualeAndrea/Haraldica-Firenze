@@ -1,0 +1,37 @@
+<section class="brand-banner">
+  <div class="container">
+    <div class="brand-banner__layout">
+
+      <!-- Left: Artisan Image -->
+      <div class="brand-banner__left">
+        <div class="brand-banner__artisan-img" aria-label="Artisan hands crafting garment with circuit patterns">
+          <div class="brand-banner__artisan-overlay">
+            <span class="brand-banner__artisan-icon">🧵</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Centre: Text & CTA -->
+      <div class="brand-banner__centre">
+        <h2 class="brand-banner__title">Crafted in Florence.<br>Powered by Intelligence.</h2>
+        <p class="brand-banner__body">
+          Where centuries-old techniques meet cutting-edge innovation. Every garment is born from the intersection of Florentine master tailoring, rare natural fibres, and intelligent design principles refined over generations.
+        </p>
+        <a routerLink="/shop" class="btn-outline brand-banner__cta">Learn More</a>
+      </div>
+
+      <!-- Right: Circular Icons -->
+      <div class="brand-banner__right">
+        @for (detail of craftDetails; track detail.label) {
+          <div class="brand-banner__icon-card">
+            <div class="brand-banner__icon-circle" aria-hidden="true">
+              <span>{{ detail.icon }}</span>
+            </div>
+            <p class="brand-banner__icon-label">{{ detail.label }}</p>
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<main class="pdp">
+  <div class="pdp__gallery">
+    <div class="pdp__image-placeholder">
+      <span class="pdp__image-label">{{ product.name }}</span>
+    </div>
+  </div>
+
+  <div class="pdp__info">
+    <h1 class="pdp__name">{{ product.name }}</h1>
+    <p class="pdp__price">{{ formattedPrice }}</p>
+    <div class="pdp__divider"></div>
+    <p class="pdp__description">{{ product.description }}</p>
+
+    <!-- Size Selector -->
+    <div class="pdp__sizes">
+      <p class="pdp__sizes-label">Select Size</p>
+      <div class="pdp__sizes-grid">
+        @for (size of product.sizes; track size) {
+          <button
+            class="pdp__size-btn"
+            [class.pdp__size-btn--selected]="selectedSize === size"
+            (click)="selectSize(size)"
+            [attr.aria-pressed]="selectedSize === size"
+          >{{ size }}</button>
+        }
+      </div>
+    </div>
+
+    <button class="pdp__add-btn" (click)="addToBag()">Add to Bag</button>
+
+    <a routerLink="/shop" class="btn-outline pdp__back-link">← Back to Shop</a>
+  </div>
+</main>

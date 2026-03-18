@@ -1,0 +1,58 @@
+<main class="profile">
+  <div class="container">
+    <div class="profile__layout">
+
+      <!-- Sidebar -->
+      <aside class="profile__sidebar">
+        <p class="profile__sidebar-title">My Account</p>
+        <nav>
+          <ul class="profile__menu">
+            @for (item of menuItems; track item) {
+              <li>
+                <button
+                  class="profile__menu-item"
+                  [class.profile__menu-item--active]="activeMenu === item"
+                  (click)="selectMenu(item)"
+                >{{ item }}</button>
+              </li>
+            }
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Content Area -->
+      <section class="profile__content">
+        <h1 class="profile__content-title">{{ activeMenu }}</h1>
+        <div class="gold-divider"></div>
+
+        @if (activeMenu === 'My Orders') {
+          <table class="profile__orders-table">
+            <thead>
+              <tr>
+                <th>Order</th>
+                <th>Date</th>
+                <th>Item</th>
+                <th>Status</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (order of orders; track order.id) {
+                <tr>
+                  <td>{{ order.id }}</td>
+                  <td>{{ order.date }}</td>
+                  <td>{{ order.item }}</td>
+                  <td><span class="profile__status">{{ order.status }}</span></td>
+                  <td>{{ order.total }}</td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        } @else {
+          <p class="profile__placeholder">This section is coming soon.</p>
+        }
+      </section>
+
+    </div>
+  </div>
+</main>
