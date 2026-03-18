@@ -41,11 +41,6 @@
     text-transform: uppercase;
   }
 
-  &__logo-dot {
-    color: var(--color-accent);
-  }
-
-  // Right icons
   &__icons {
     position: absolute;
     right: var(--spacing-lg);
